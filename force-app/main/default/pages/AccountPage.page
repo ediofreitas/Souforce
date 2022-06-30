@@ -1,0 +1,15 @@
+<apex:page id="AccountPage" sidebar="false" showHeader="true" docType="html-5.0" lightningStylesheets="true" standardController="Account">
+    <apex:form id="accountForm">
+        <apex:pageblock mode="edit">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save" action="{!save}"></apex:commandButton>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Account Information" columns="2">
+                <apex:inputfield value="{!Account.Name}"></apex:inputfield>
+                <apex:inputfield value="{!Account.Site}"></apex:inputfield>
+                <apex:inputfield value="{!Account.Phone}"></apex:inputfield>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>    
+
+</apex:page>

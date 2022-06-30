@@ -1,0 +1,16 @@
+.myclass{
+    Border: 1px lightgrey solid;
+    Padding : 5px;
+    border-radius: 5px;
+    
+    }
+
+    .exampleHolder{
+        position: relative;
+        display: inline-block;
+        margin-left: 300px;
+        width: 100px;
+        vertical-align: middle;
+        white-space: nowrap;
+        
+    }

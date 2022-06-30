@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="TicketsController">
+    <aura:attribute name="voos" type="Object"/>
+    <aura:attribute name="moeda" type="currency" default="BRL"/>
+    <aura:handler name="init" value="this" action="{!c.init}"/>
+    <aura:handler name="ticketEventClick" event="c:TicketEventClick" action="{!c.handlerEventClick}"/>
+
+
+    <aura:iteration items="{!v.voos}" var="voo">
+        <c:CardTicket   vooIda="{!voo.vooIda}"
+                        vooVolta="{!voo.vooVolta}"   
+                        moeda="{!v.moeda}"          
+        ></c:CardTicket>
+    </aura:iteration>
+</aura:component>	

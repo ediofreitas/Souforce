@@ -1,0 +1,5 @@
+.THIS .linha {
+    border-bottom: solid black 1px;
+    min-width: 200px;
+    height: 20px;
+}

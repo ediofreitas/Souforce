@@ -1,0 +1,43 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="CnpjSearchController">
+
+    <aura:attribute name="cnpj" type="String"/>
+    <aura:attribute name="oportunidades" type="Object"/>
+    <aura:attribute name="contas" type="Object"/>
+    <aura:attribute name="leads" type="Object"/>
+    <aura:attribute name="contains" type="Boolean" default="false"/>
+    <aura:attribute name="columnsAcc" type="List"/>
+    <aura:attribute name="columnsOpp" type="List"/>
+    <aura:attribute name="columnsLead" type="List"/>
+
+    <lightning:card>
+        <div class="slds-p-around_medium lgc-bg" style="display: flex;">
+            <lightning:input name="Buscar CNPJ" label="Buscar CNPJ (AURA)" placeholder="insire o cnpj aqui..." value="{!v.cnpj}"/>
+            <div class="slds-m-top_small slds-m-top_large slds-m-left_x-small">
+                <lightning:button variant="brand" label="Buscar" title="Buscar CNPJ" onclick="{! c.handleClick }" />
+            </div>
+        </div>
+        <aura:if isTrue="{!v.contains}">
+            <div>
+                <lightning:datatable
+                        keyField="id"
+                        data="{! v.contas }"
+                        columns="{! v.columnsAcc }"
+                        hideCheckboxColumn="true"/>
+            </div>
+            <div>
+                <lightning:datatable
+                        keyField="id"
+                        data="{! v.oportunidades }"
+                        columns="{! v.columnsOpp }"
+                        hideCheckboxColumn="true"/>
+            </div>
+            <div>
+                <lightning:datatable
+                        keyField="id"
+                        data="{! v.leads }"
+                        columns="{! v.columnsLead }"
+                        hideCheckboxColumn="true"/>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

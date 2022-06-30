@@ -1,0 +1,51 @@
+<template>
+
+    <div class="myclass">
+  
+      <div class="slds-p-horizontal_medium">
+  
+        <lightning-card title="Symptom Classification" icon-name="standard:topic" style="padding: 10px">
+  
+          <div slot="actions">
+            <lightning-button-icon onclick={refreshView} size="small" icon-name="utility:refresh" class="slds-float_right"
+              variant="border-filled" alternative-text="Refresh" title="Refresh"></lightning-button-icon>
+          </div>
+  
+          <lightning-input label="Help us train Dell Insights by classifying the case" name="Search" type="search"
+            value={searchTerm} title="Search Box" onchange={handleChange} placeholder="Search Classifications"
+            field-level-help=" Dell Insights is our Artificial Intelligence(AI) here to assist you with tasks. It helps by classifying the case so we can identify ways to better serve our customers.">
+          </lightning-input>
+          <lightning-spinner alternative-text="Loading" if:true={loading} class="exampleHolder"></lightning-spinner>
+  
+          <lightning-pill-container if:true={hasItemValues} onitemremove={handleItemRemove} items={items} variant="bare">
+          </lightning-pill-container>
+  
+          <div class=" myclass slds-p-horizontal_medium slds-scrollable_y " if:true={showValues} style="height:150px"
+            if:false={noRecordsFlag}>
+  
+            <!--<template if:true={showValues} if:false={noRecordsFlag}> -->
+            <lightning-layout-item size="4" padding="around-small">
+              <template for:each={records} for:item="record">
+                <template if:true={record} role="option"
+                  class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                  <c-lookup-item key={record.Id} record={record} onlookupselect={handlelookupselect} style="padding: 1px">
+                  </c-lookup-item>
+                </template>
+              </template>
+            </lightning-layout-item>
+            <template if:true={noRecordsFlag}>
+              <p>No Records Found</p>
+            </template>
+            <!--</template> -->
+  
+  
+          </div>
+  
+        </lightning-card>
+  
+      </div>
+  
+  
+    </div>
+  
+  </template>

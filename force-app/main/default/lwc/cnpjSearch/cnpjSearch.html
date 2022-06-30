@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-top_medium slds-m-bottom_x-large">
+            <div class="slds-p-around_medium lgc-bg container">
+                <lightning-input type="text" label="Buscar CNPJ (LWC)" placeholder="insire o cnpj aqui..." value={cnpj} onchange={updateCnpj}></lightning-input>
+                <div class="slds-m-top_small slds-m-top_large">
+                    <lightning-button variant="brand" label="Buscar" title="Buscar" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+        </div>
+    
+        <template if:true={listContains}>
+            <div>
+                <lightning-datatable
+                        key-field="id"
+                        data={contas}
+                        columns={columnsConta}>
+                        
+                </lightning-datatable>
+                <lightning-datatable
+                        key-field="id"
+                        data={oportunidades}
+                        columns={columnsOportunidade}>
+                </lightning-datatable>
+                <lightning-datatable
+                        key-field="id"
+                        data={leads}
+                        columns={columnsLead}>
+                </lightning-datatable>
+            </div>    
+        </template>    
+    </lightning-card>
+</template>

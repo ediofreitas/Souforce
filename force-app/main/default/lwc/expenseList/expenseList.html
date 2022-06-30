@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Expenses List" icon-name="standard:topic" style="padding: 10px">
+        <div>
+            <template if:true={listContains}>
+        
+                <lightning-datatable
+                        key-field="id"
+                        data={expenses}
+                        columns={columns}>
+                </lightning-datatable>
+           </template>
+        </div>    
+      </lightning-card>
+</template>

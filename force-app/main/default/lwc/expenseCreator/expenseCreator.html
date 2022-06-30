@@ -1,0 +1,60 @@
+<template>
+        <lightning-card title="Expense Creator" icon-name="standard:client" style="padding: 10px">
+            <div class="slds-p-horizontal_large">                
+                <lightning-input 
+                  label="Label" 
+                  name="Label" 
+                  type="text"
+                  value={label} 
+                  title="Label" 
+                  placeholder="expense label..." 
+                  onchange={handleChangeLabel} 
+                  required="true"
+                  field-level-help="Name the label of your expense here.">
+                </lightning-input>
+                <lightning-combobox
+                    name="Category"
+                    label="Category"
+                    value={category}
+                    options={categoryOptions}
+                    onchange={handleChangeCategory} 
+                    field-level-help="What is the expense category?">
+                </lightning-combobox>
+                <lightning-input 
+                  label="Date" 
+                  name="Date" 
+                  type="date"
+                  value={dateTerm} 
+                  title="Date"  
+                  onchange={handleChangeDate} 
+                  placeholder="expense date..."
+                  required="true"
+                  field-level-help="Fill the date of your expense here.">
+                </lightning-input>
+                <lightning-input 
+                  label="Amount" 
+                  name="Amount" 
+                  type="number"
+                  value={amount} 
+                  title="Amount" 
+                  onchange={handleChangeAmount} 
+                  placeholder="expense amount..." 
+                  required="true"
+                  field-level-help="Fill the amount of your expense here.">
+                </lightning-input>
+                <lightning-combobox
+                    name="Recurrent expense"
+                    label="Recurrent expense"
+                    value={isRecurrent}
+                    options={recurrenceOptions}
+                    onchange={handleChangeRecurrence} 
+                    field-level-help="Is this a recurring expense?">
+                </lightning-combobox>
+
+                <div style="display:flex; justify-content: center" class="slds-m-top_small">
+                    <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+            <c-expense-list></c-expense-list>
+        </lightning-card>
+  </template>
